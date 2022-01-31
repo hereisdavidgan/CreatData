@@ -64,12 +64,22 @@ target1 = int(input('要造的部门数(约数)：'))
 target2 = int(input('要造的层级数(最大20)：'))
 result1 = list(zhengbei(target1, target2))
 list6 = list(du(target1))
+# 生成一个包含各层级的列表
 list8 = []
 for i in range(target2):
     s = shengcheng(result1[i], list6, i)
     list8.append(s)
 print(list8)
 
+list9 = [list8[0]]
+print(list8[0])
+for d1 in range(target2 - 1):
+    d3 = list(list9[d1])
+    list10 = []
+    for d2 in list8[d1 + 1]:
+        list10.append(random.choice(d3) + '>>' + d2)
+    list9.append(list10)
+print(list9)
 
 # jituan = []
 # yewuqun = []
