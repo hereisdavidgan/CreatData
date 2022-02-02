@@ -3,7 +3,7 @@ import random
 
 
 def xie1(x2):
-    f = open('../csv/resule.csv', mode='w', encoding='UTF-8')
+    f = open('../csv/result.csv', mode='w', encoding='UTF-8')
     for x1 in x2:
         for j in x1:
             f.write(j+'\n')
@@ -76,6 +76,7 @@ for i in range(target2):
     s = shengcheng(result1[i], list6, i)
     list8.append(s)
 result2 = result(list8, target2)
+print(result2)
 xie1(result2)
 
 
