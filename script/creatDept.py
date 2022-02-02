@@ -2,16 +2,11 @@ import csv
 import random
 
 
-def xie(dict1):
-    # 输入字典dict1，写入值-->键
-    for ii in range(len(dict1)):
-        list1 = list(dict1.keys())
-        list2 = list(dict1.values())
-        aa = list2[ii]
-        b = '-->'
-        c = list1[ii]
-        d = ';\n'
-        f.write(aa + b + c + d)
+def xie1(x2):
+    f = open('../csv/resule.csv', mode='w', encoding='UTF-8')
+    for x1 in x2:
+        for j in x1:
+            f.write(j+'\n')
 
 
 def du(t):
@@ -60,6 +55,17 @@ def shengcheng(s1, s2, s3):
     return shengcheng1
 
 
+def result(r2, r3):
+    r1 = [r2[0]]
+    for d1 in range(r3 - 1):
+        d3 = list(r1[d1])
+        r4 = []
+        for d2 in r2[d1 + 1]:
+            r4.append(random.choice(d3) + '>>' + d2)
+        r1.append(r4)
+    return r1
+
+
 target1 = int(input('要造的部门数(约数)：'))
 target2 = int(input('要造的层级数(最大20)：'))
 result1 = list(zhengbei(target1, target2))
@@ -69,84 +75,7 @@ list8 = []
 for i in range(target2):
     s = shengcheng(result1[i], list6, i)
     list8.append(s)
-print(list8)
+result2 = result(list8, target2)
+xie1(result2)
 
-list9 = [list8[0]]
-print(list8[0])
-for d1 in range(target2 - 1):
-    d3 = list(list9[d1])
-    list10 = []
-    for d2 in list8[d1 + 1]:
-        list10.append(random.choice(d3) + '>>' + d2)
-    list9.append(list10)
-print(list9)
-
-# jituan = []
-# yewuqun = []
-# yewuxian = []
-# shiyebu = []
-# jiaofubu = []
-#
-# for i in range(5):
-#     a = random.choice(list6)
-#     jituan.append(a + '集团')
-#     list6.remove(a)
-# for i in range(19):
-#     a = random.choice(list6)
-#     yewuqun.append(a + '业务群')
-#     list6.remove(a)
-# for i in range(41):
-#     a = random.choice(list6)
-#     yewuxian.append(a + '业务线')
-#     list6.remove(a)
-# for i in range(61):
-#     a = random.choice(list6)
-#     shiyebu.append(a + '事业部')
-#     list6.remove(a)
-# for i in range(83):
-#     a = random.choice(list6)
-#     jiaofubu.append(a + '交付部')
-#     list6.remove(a)
-
-#
-# temp0 = {}
-# for i in jituan:
-#     temp0[i] = 'xxx有限公司'    # 添加
-# temp1 = {}
-# for i in yewuqun:
-#     temp1[i] = random.choice(jituan)    # 添加
-# temp2 = {}
-# for i in yewuxian:
-#     temp2[i] = random.choice(yewuqun)    # 添加
-# temp3 = {}
-# for i in shiyebu:
-#     temp3[i] = random.choice(yewuxian)    # 添加
-# temp4 = {}
-# for i in jiaofubu:
-#     temp4[i] = random.choice(shiyebu)    # 添加
-#
-# print(temp1)
-#
-# f = open('../csv/1.md', mode='w', encoding='UTF-8')
-# f.write('```mermaid\n')
-# f.write('graph LR;\n')
-# xie(temp0)
-# xie(temp1)
-# xie(temp2)
-# xie(temp3)
-# xie(temp4)
-# f.close()
-#
-# total = []
-# tlist1 = []
-# tlist2 = []
-# for i in jituan:
-#     total.append(i)
-# for i in temp1.keys():
-#     tlist1.append(temp1[i] + '>>' + i)
-#     total.append(temp1[i] + '>>' + i)
-# for i in temp2.keys():
-#     tlist2.append(temp2[i] + '>>' + i)
-#     total.append(temp2[i] + '>>' + i)
-# print(total)
 
