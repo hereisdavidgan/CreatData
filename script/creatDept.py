@@ -15,15 +15,13 @@ def du(t):
     list1 = []
     list2 = []
     list3 = []
-    list4 = []
     list5 = []
     # print(dept1)
     for iii in dept1:
         list1.append(iii[0])
         list2.append(iii[1])
         list3.append(iii[2])
-        list4.append(iii[3])
-    for iii in range(int(1.3 * t)):
+    for iii in range(int(2 * t)):
         list5.append(random.choice(list1)+random.choice(list2)+random.choice(list3))
     temp = {}.fromkeys(list5)
     list7 = list(temp.keys())
@@ -45,13 +43,18 @@ def zhengbei(tt1, tt2):
 
 def shengcheng(s1, s2, s3):
     # 输入s1 那一层要的部门数, s2 备用词条, s3 第几层
-    bumen = ["集团", "业务群", "业务线", "事业部", "交付部", "团队", "界", "门", "纲", "目", "科", "属", "种", "甲", "乙", "丙", "丁", "戊", "己",
-             "庚", "辛"]
+    bm = ['第一集团', '第三集团', '集团'], ['业务群', '家族群', '相亲群'], ['业务线', '流水二线', '流水线'], ['事业部', '抹部', '情报部'], \
+         ['交付部', '交付一部', '交付二部'], ['团队', '小队', '小分队', '二队', '三队', '应急队'], ['界', '动物界', '植物界', '微生物界'], \
+         ['门', '脊索门', '脊椎亚门'], ['纲', '哺乳纲', '真兽亚纲', '今鸟亚纲', '鸟纲', '真兽亚纲'], ['目', '灵长目', '鸡形目', '裂脚亚目', '食肉目'], \
+         ['科', '人科', '雉科', '犬科', '犬亚科'], ['属', '人属', '原鸡属', '犬属'], ['种', '智人种', '家鸡', '红原鸡', '家犬', '灰狼'], \
+         ['军', '红军', '蓝军', '空军', '海军'], ['师', '暂七师', '八九师'], ['旅', '三八六旅', '野战旅'], \
+         ['团', '独立团', '发面团', '新一团', '新一团'], ['营', '一营', '二营', '三营'], ['连', '警卫连', '钢七连', '红三连'], \
+         ['排', '警卫排', '鸡排', '猪排'], ['班', '警卫班', '三班', '五班']
+    bumen = bm[s3]
+    chengpin = random.sample(s2, s1)
     shengcheng1 = []
-    for i1 in range(s1):
-        a1 = random.choice(s2)
-        shengcheng1.append(a1 + bumen[s3])
-        # list6.remove(a1)
+    for i1 in chengpin:
+        shengcheng1.append(i1 + random.choice(bumen))
     return shengcheng1
 
 
@@ -75,6 +78,7 @@ list8 = []
 for i in range(target2):
     s = shengcheng(result1[i], list6, i)
     list8.append(s)
+print(list8)
 result2 = result(list8, target2)
 print(result2)
 xie1(result2)
